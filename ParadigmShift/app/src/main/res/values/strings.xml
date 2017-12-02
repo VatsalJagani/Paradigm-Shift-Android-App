@@ -5,4 +5,18 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Information -->
+    <string name="description_of_app">Paradigm Shift is an Android App which can be very helpful in managing your Credits and Debits (Accounting-Information) in your Smart Phone it self. It is very easy and simple to use. It is very handy for any type of User.</string>
+    <string name="webUrl">https://vatsal.000webhostapp.com</string>
+    <string name="playStoreUrl">https://vatsal.000webhostapp.com</string>
+
+    <string name="author_name_only">Vatsal Jagani</string>
+    <string name="author_mobile_no_only">+918347919730</string>
+    <string name="author_email_only">vatsaljagani85@gmail.com</string>
+    <string name="author">Author : Vatsal Jagani</string>
+    <string name="author_mobile_no">Phone : +91 8347919730</string>
+    <string name="author_email">Email : vatsaljagani85@gmail.com</string>
+    <!-- /Information -->
+
 </resources>

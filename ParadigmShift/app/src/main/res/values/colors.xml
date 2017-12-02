@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorName">#000000</color>
+    <color name="colorAmount">#930123</color>
+    <color name="colorBg">#a4a4a5</color>
+    <color name="colorPurpose">#000000</color>
+    <color name="colorCredit">#015b0a</color>
+    <color name="colorDebit">#FF0000</color>
+    <color name="colorContact">#1a2d4c</color>
+    <color name="colorListItemDivider">#a971f7</color>
+    <color name="colorSelectedItems">#73829b</color>
 </resources>
