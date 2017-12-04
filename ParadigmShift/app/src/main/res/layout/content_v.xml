@@ -5,14 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.learnparadigmshift.vatsal.paradigmshift.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:context="com.learnparadigmshift.vatsal.paradigmshift.VActivity"
+    tools:showIn="@layout/app_bar_v">
 
     <FrameLayout
-        android:id="@+id/fragment_here"
+        android:id="@+id/put_fragment_here"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
+        android:layout_height="match_parent"></FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

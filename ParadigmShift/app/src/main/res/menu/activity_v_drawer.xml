@@ -3,7 +3,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_accounting"
+            android:id="@+id/nav_main_list"
             android:icon="@drawable/ic_accounting"
             android:title="Accounting" />
         <item
@@ -23,13 +23,13 @@
     <item android:title="Communicate">
         <menu>
             <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_about"
+                android:title="Contact Us" />
+            <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Share App" />
             <item
                 android:id="@+id/nav_help"
                 android:icon="@drawable/ic_help"

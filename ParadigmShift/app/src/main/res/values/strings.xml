@@ -17,6 +17,10 @@
     <string name="author">Author : Vatsal Jagani</string>
     <string name="author_mobile_no">Phone : +91 8347919730</string>
     <string name="author_email">Email : vatsaljagani85@gmail.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_v">VActivity</string>
     <!-- /Information -->
 
 </resources>
