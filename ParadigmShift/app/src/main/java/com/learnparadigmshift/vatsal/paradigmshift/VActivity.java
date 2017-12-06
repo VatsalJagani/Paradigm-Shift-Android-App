@@ -24,7 +24,7 @@ import com.learnparadigmshift.vatsal.paradigmshift.other.AboutFragment;
 import com.learnparadigmshift.vatsal.paradigmshift.other.BackupFragment;
 
 public class VActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, MainListFragment.IMainListCommunication, AccountingListFragment.IAccountingListCommunication, AddAccountingFragment.IAddAccountingCommunication, InformationAccountingFragment.IInformationAccountingCommunication, InformationFriendFragment.IInformationFriendCommunication, FriendListFragment.IFriendListCommunication, AddFriendFragment.IAddFriendCommunication, BackupFragment.IBackupCommunication {
+        implements NavigationView.OnNavigationItemSelectedListener, MainListFragment.IMainListCommunication, AccountingListFragment.IAccountingListCommunication, AddAccountingFragment.IAddAccountingCommunication, InformationAccountingFragment.IInformationAccountingCommunication, InformationFriendFragment.IInformationFriendCommunication, FriendListFragment.IFriendListCommunication, AddFriendFragment.IAddFriendCommunication, BackupFragment.IBackupCommunication, HistoryAccountingListFragment.IHistoryAccountingListCommunication {
 
     Fragment currentFragment;
     MainListModel currentActiveFriend;
@@ -152,6 +152,11 @@ public class VActivity extends AppCompatActivity
     @Override
     public MainListModel getCurrentActiveFriend() {
         return currentActiveFriend;
+    }
+
+    @Override
+    public void showHistoryAccountings() {
+        changeFragment(new HistoryAccountingListFragment(),true);
     }
 
     @Override

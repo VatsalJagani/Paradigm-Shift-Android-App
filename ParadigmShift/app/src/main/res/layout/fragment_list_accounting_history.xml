@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.learnparadigmshift.vatsal.paradigmshift.fragments.HistoryAccountingListFragment">
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:listSelector="@color/colorSelectedItems"
+            android:divider="@color/colorListItemDivider"
+            android:dividerHeight="2dp"/>
+
+</FrameLayout>

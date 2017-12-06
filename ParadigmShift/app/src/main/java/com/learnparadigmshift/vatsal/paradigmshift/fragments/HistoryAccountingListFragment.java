@@ -27,23 +27,19 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AccountingListFragment extends Fragment {
+public class HistoryAccountingListFragment extends Fragment {
 
-    public interface IAccountingListCommunication{
-        void openAddNewAccounting();
+    public interface IHistoryAccountingListCommunication{
         void showMoreInformationOfAccounting(Accounting ac);
         void accountingsRemoved();
-        void accountCleared();
         MainListModel getCurrentActiveFriend();
-        void showHistoryAccountings();
     }
 
     View view;
     MainListModel currentActiveFriend;
     ArrayList<Accounting> items;
     AccountingListAdapter adapter;
-
-    public AccountingListFragment() {
+    public HistoryAccountingListFragment() {
         // Required empty public constructor
     }
 
@@ -52,34 +48,20 @@ public class AccountingListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.fragment_list_accounting, container, false);
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_plus_accounting);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((IAccountingListCommunication)getActivity()).openAddNewAccounting();
-            }
-        });
-        currentActiveFriend=((IAccountingListCommunication) getActivity()).getCurrentActiveFriend();
+        view=inflater.inflate(R.layout.fragment_list_accounting_history, container, false);
 
-        TextView frdName= (TextView) view.findViewById(R.id.frd_name1);
-        frdName.setText(currentActiveFriend.getName());
-        TextView totalAmount= (TextView) view.findViewById(R.id.frd_total_amount1);
-        totalAmount.setText(""+currentActiveFriend.getAmount());
-        if(currentActiveFriend.getAmount()<0) {
-            totalAmount.setTextColor(Color.RED);
-        }
+        currentActiveFriend=((IHistoryAccountingListCommunication) getActivity()).getCurrentActiveFriend();
 
         final ListView listView = (ListView) view.findViewById(R.id.listview);
         DatabaseHelper db=new DatabaseHelper(getContext());
-        items = db.getAccountings(currentActiveFriend.getFriendId());
+        items = db.getHistoryAccountings(currentActiveFriend.getFriendId());
         adapter = new AccountingListAdapter(getContext(),items);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Display accountings in fragment by showIncompleAccountings()
-                ((IAccountingListCommunication) getActivity()).showMoreInformationOfAccounting(items.get(position));
+                ((IHistoryAccountingListCommunication) getActivity()).showMoreInformationOfAccounting(items.get(position));
             }
         });
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -95,34 +77,14 @@ public class AccountingListFragment extends Fragment {
                             dbHelper.removeAccounting(ac.getAcId());
                         }
                         mode.finish(); // Action picked, so close the CAB
-                        ((IAccountingListCommunication)getActivity()).accountingsRemoved();
+                        ((IHistoryAccountingListCommunication)getActivity()).accountingsRemoved();
                         return true;
                     default:
                         return false;
                 }
             }
         });
-
-        ((Button)view.findViewById(R.id.buttonClearAccount)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clearAccount();
-            }
-        });
-
-        ((Button)view.findViewById(R.id.buttonShowHistory)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((IAccountingListCommunication)getActivity()).showHistoryAccountings();
-            }
-        });
-
         return view;
     }
 
-    private void clearAccount() {
-        DatabaseHelper dbHelper=new DatabaseHelper(getContext());
-        dbHelper.clearAccount(currentActiveFriend.getFriendId());
-        ((IAccountingListCommunication)getActivity()).accountCleared();
-    }
 }

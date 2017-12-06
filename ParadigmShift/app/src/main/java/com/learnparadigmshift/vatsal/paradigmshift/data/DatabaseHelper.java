@@ -193,6 +193,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return accs;
     }
 
+    public ArrayList<Accounting> getHistoryAccountings(int friendId){
+        ArrayList<Accounting> accs=null;
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query="SELECT * FROM " + ACCOUNTING_TABLE + " WHERE " + FRIEND_ID + " = ? AND " + COMPLETE + " = 1";
+        Cursor c=db.rawQuery(query,new String[]{""+friendId});
+        if(c!=null){
+            accs = new ArrayList<>();
+            while(c.moveToNext()){
+                Accounting ac=new Accounting();
+                ac.setFriendId(friendId);
+                ac.setAcId(c.getInt(c.getColumnIndex(ACCOUNT_ID)));
+                ac.setAmount(c.getDouble(c.getColumnIndex(AMOUNT)));
+                ac.setComplete(0);
+                ac.setDate(c.getString(c.getColumnIndex(DATE)));
+                ac.setTime(c.getString(c.getColumnIndex(TIME)));
+                ac.setPurpose(c.getString(c.getColumnIndex(PURPOSE)));
+                accs.add(ac);
+            }
+        }
+        return accs;
+    }
+
     public int  clearAccount(int friendId) {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues values=new ContentValues();
