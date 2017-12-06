@@ -110,12 +110,13 @@ public class AccountingListFragment extends Fragment {
             }
         });
 
-        ((Button)view.findViewById(R.id.buttonShowHistory)).setOnClickListener(new View.OnClickListener() {
+/*        ((Button)view.findViewById(R.id.buttonShowHistory)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((IAccountingListCommunication)getActivity()).showHistoryAccountings();
             }
         });
+        */
 
         return view;
     }

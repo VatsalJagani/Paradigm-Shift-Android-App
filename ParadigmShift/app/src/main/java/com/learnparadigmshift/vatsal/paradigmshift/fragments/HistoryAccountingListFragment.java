@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.learnparadigmshift.vatsal.paradigmshift.R;
 import com.learnparadigmshift.vatsal.paradigmshift.adapters.AccountingListAdapter;
@@ -52,15 +53,20 @@ public class HistoryAccountingListFragment extends Fragment {
 
         currentActiveFriend=((IHistoryAccountingListCommunication) getActivity()).getCurrentActiveFriend();
 
-        final ListView listView = (ListView) view.findViewById(R.id.listview);
+        final ListView listView = (ListView) view.findViewById(R.id.listview1);
         DatabaseHelper db=new DatabaseHelper(getContext());
         items = db.getHistoryAccountings(currentActiveFriend.getFriendId());
+        if(items==null){
+            Toast.makeText(getContext(),"Items is null",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(getContext(),items.size()+" Here",Toast.LENGTH_LONG).show();
+        }
         adapter = new AccountingListAdapter(getContext(),items);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Display accountings in fragment by showIncompleAccountings()
                 ((IHistoryAccountingListCommunication) getActivity()).showMoreInformationOfAccounting(items.get(position));
             }
         });

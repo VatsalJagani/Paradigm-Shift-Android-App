@@ -39,13 +39,13 @@
                 android:textSize="20sp"/>
         </LinearLayout>
 
-        <Button
+<!--        <Button
             android:id="@+id/buttonShowHistory"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="Show History"
-            android:layout_marginBottom="7sp"/>
+            android:layout_marginBottom="7sp"/>  -->
 
         <Button
             android:id="@+id/buttonClearAccount"
